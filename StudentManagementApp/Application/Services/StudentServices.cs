@@ -1,5 +1,4 @@
-﻿// Application/Services/StudentService.cs
-using StudentManagementApp.Application.Interfaces;
+﻿using StudentManagementApp.Application.Interfaces;
 using StudentManagementApp.Core.Models;
 using System.Linq;
 

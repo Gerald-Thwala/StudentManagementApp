@@ -10,7 +10,6 @@
   <ItemGroup>
     <Folder Include="Application\Commands\" />
     <Folder Include="Application\Factories\" />
-    <Folder Include="Application\Validators\" />
     <Folder Include="Tests\Application\" />
     <Folder Include="Tests\Infrastructure\" />
   </ItemGroup>
