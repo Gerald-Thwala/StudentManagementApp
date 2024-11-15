@@ -1,32 +1,25 @@
 ﻿using StudentManagementApp.Application.Interfaces;
 using StudentManagementApp.Application.Commands;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace StudentManagementApp.Application.Factories
 {
     public class CommandFactory : ICommandFactory
     {
         private readonly IServiceProvider _serviceProvider;
-        private readonly Dictionary<string, Type> _commands;
 
         public CommandFactory(IServiceProvider serviceProvider)
         {
             _serviceProvider = serviceProvider;
-            _commands = new()
-        {
-            { "add", typeof(AddStudentCommand) },
-            
-        };
         }
 
-        public bool TryGetCommand(string action, out ICommand command)
+        public ICommand CreateCommand(string action, string[] args)
         {
-            command = null!;
-            if (_commands.TryGetValue(action, out var type))
+            return action.ToLower() switch
             {
-                command = (ICommand)_serviceProvider.GetService(type)!;
-                return command != null;
-            }
-            return false;
+                "add" => _serviceProvider.GetRequiredService<AddStudentCommand>(),
+                _ => throw new ArgumentException($"Unknown command action: {action}")
+            };
         }
     }
 }
