@@ -12,7 +12,7 @@ public class AddStudentCommand : ICommand
         _studentService = studentService;
     }
 
-    public async Task ExecuteAsync(string[] args)
+    public async Task ExecuteAsync(string args)
     {
         Console.Write("Enter Student ID (7 digits): ");
         if (!InputValidator.ValidateStudentId(Console.ReadLine()!, out int id))

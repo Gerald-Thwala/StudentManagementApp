@@ -13,6 +13,6 @@ namespace StudentManagementApp.Application.Interfaces
         /// <param name="action">The action to perform (e.g., "add", "edit", "delete", etc.).</param>
         /// <param name="args">The arguments associated with the command (e.g., student ID, name, etc.).</param>
         /// <returns>The created command.</returns>
-        ICommand CreateCommand(string action, string[] args);
+        ICommand CreateCommand(string action, string args);
     }
 }

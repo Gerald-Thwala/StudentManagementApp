@@ -6,5 +6,5 @@ public interface ICommand
     /// </summary>
     /// <param name="args">The arguments passed to the command.</param>
     /// <returns>A task that represents the asynchronous operation.</returns>
-    Task ExecuteAsync(string[] args);
+    Task ExecuteAsync(string args);
 }
