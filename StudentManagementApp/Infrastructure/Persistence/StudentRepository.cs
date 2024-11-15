@@ -11,6 +11,7 @@ public class StudentRepository : IStudentRepository
     public StudentRepository(string basePath)
     {
         _basePath = basePath;
+        Directory.CreateDirectory(_basePath);
     }
 
     public async Task AddStudentAsync(Student student)
