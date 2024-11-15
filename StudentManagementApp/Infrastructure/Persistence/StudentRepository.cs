@@ -23,7 +23,7 @@ public class StudentRepository : IStudentRepository
         string json = JsonSerializer.Serialize(student, new JsonSerializerOptions { WriteIndented = true });
         await File.WriteAllTextAsync(filePath, json);
     }
-
+    #nullable enable
     public async Task<Student?> GetStudentByIdAsync(int id)
     {
         string directory = Path.Combine(_basePath, id.ToString()[..2]);

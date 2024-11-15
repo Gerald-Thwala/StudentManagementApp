@@ -14,11 +14,6 @@ public class StudentService
         _repository = repository;
     }
 
-    public async Task<Student?> GetStudentByIdAsync(int id)
-    {
-        return await _repository.GetStudentByIdAsync(id);
-    }
-
     public async Task AddStudentAsync(Student student)
     {
         var existingStudent = await _repository.GetStudentByIdAsync(student.Id);
@@ -46,6 +41,11 @@ public class StudentService
     public IEnumerable<Student> SearchStudents(Func<Student, bool> predicate)
     {
         return _repository.GetAllStudents().Where(predicate);
+    }
+    #nullable enable
+    public async Task<Student?> GetStudentByIdAsync(int id)
+    {
+        return await _repository.GetStudentByIdAsync(id);
     }
 }
 
