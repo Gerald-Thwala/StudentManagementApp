@@ -1,5 +1,6 @@
 ﻿using StudentManagementApp.Application.Interfaces;
 using StudentManagementApp.Core.Models;
+using StudentManagementApp.Infrastructure.Persistence;
 using System.Linq;
 
 namespace StudentManagementApp.Application.Services;
@@ -11,6 +12,11 @@ public class StudentService
     public StudentService(IStudentRepository repository)
     {
         _repository = repository;
+    }
+
+    public async Task<Student?> GetStudentByIdAsync(int id)
+    {
+        return await _repository.GetStudentByIdAsync(id);
     }
 
     public async Task AddStudentAsync(Student student)
