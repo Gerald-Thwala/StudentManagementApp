@@ -11,6 +11,7 @@ var serviceProvider = new ServiceCollection()
     .AddSingleton<ICommandFactory, CommandFactory>()
     .AddSingleton<AddStudentCommand>()
     .AddSingleton<DeleteStudentCommand>()
+    .AddSingleton<EditStudentCommand>()
     .AddScoped<SearchStudentsCommand>()
     .BuildServiceProvider();
 
