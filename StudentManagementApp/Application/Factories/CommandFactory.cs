@@ -19,6 +19,7 @@ namespace StudentManagementApp.Application.Factories
             {
                 "add" => _serviceProvider.GetRequiredService<AddStudentCommand>(),
                 "search" => _serviceProvider.GetRequiredService<SearchStudentsCommand>(),
+                "delete" => _serviceProvider.GetRequiredService<DeleteStudentCommand>(),
                 _ => throw new ArgumentException($"Unknown command action: {action}")
             };
         }
