@@ -4,7 +4,7 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -13,7 +13,6 @@
     <Folder Include="Application\Factories\" />
     <Folder Include="Application\Validators\" />
     <Folder Include="Application\Services\" />
-    <Folder Include="Core\Models\" />
     <Folder Include="Infrastructure\Persistence\" />
     <Folder Include="Tests\Application\" />
     <Folder Include="Tests\Infrastructure\" />
