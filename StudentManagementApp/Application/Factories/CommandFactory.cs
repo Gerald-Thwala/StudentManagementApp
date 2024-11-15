@@ -18,6 +18,7 @@ namespace StudentManagementApp.Application.Factories
             return action.ToLower() switch
             {
                 "add" => _serviceProvider.GetRequiredService<AddStudentCommand>(),
+                "search" => _serviceProvider.GetRequiredService<SearchStudentsCommand>(),
                 _ => throw new ArgumentException($"Unknown command action: {action}")
             };
         }

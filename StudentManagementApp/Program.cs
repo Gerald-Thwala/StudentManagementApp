@@ -10,6 +10,7 @@ var serviceProvider = new ServiceCollection()
     .AddSingleton<StudentService>()
     .AddSingleton<ICommandFactory, CommandFactory>()
     .AddSingleton<AddStudentCommand>()
+    .AddScoped<SearchStudentsCommand>()
     .BuildServiceProvider();
 
 try
