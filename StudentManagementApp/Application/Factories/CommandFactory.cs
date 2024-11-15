@@ -13,7 +13,7 @@ namespace StudentManagementApp.Application.Factories
             _serviceProvider = serviceProvider;
         }
 
-        public ICommand CreateCommand(string action, string[] args)
+        public ICommand CreateCommand(string action, string args)
         {
             return action.ToLower() switch
             {
