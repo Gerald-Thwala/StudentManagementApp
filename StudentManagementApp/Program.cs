@@ -10,6 +10,7 @@ var serviceProvider = new ServiceCollection()
     .AddSingleton<StudentService>()
     .AddSingleton<ICommandFactory, CommandFactory>()
     .AddSingleton<AddStudentCommand>()
+    .AddSingleton<DeleteStudentCommand>()
     .AddScoped<SearchStudentsCommand>()
     .BuildServiceProvider();
 
@@ -23,12 +24,12 @@ try
         return;
     }
 
-    var action = commandArgs[0].Substring("--action=".Length); 
-    var parameters = commandArgs.Skip(1).ToArray(); 
+    var action = commandArgs[0].Substring("--action=".Length);
+    var idArg = commandArgs.Length > 1 ? commandArgs[1].Split("=")[1] : "";
 
     var commandFactory = serviceProvider.GetRequiredService<ICommandFactory>();
-    var command = commandFactory.CreateCommand(action, parameters);
-    await command.ExecuteAsync(parameters);
+    var command = commandFactory.CreateCommand(action, idArg);
+    await command.ExecuteAsync(idArg);
 }
 catch (Exception ex)
 {
